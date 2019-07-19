@@ -1,7 +1,9 @@
 function [passage, v, time] = createPassage(E,L)
 %
-% createPassage    create the empty passage matrix(no people). 
+% createPassage    Create the empty passage matrix(no people). 
 %
+% Author: Hephaest
+% July 18, 2019
 
 booth_row = ceil( L / 4);
 W = E * 3;
