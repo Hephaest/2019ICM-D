@@ -1,7 +1,9 @@
 function [passage, v, time, nOut, tout] = clearBoundary(passage, v, time)
 %
-% clear_entrance  remove the people of the exit space.
+% clear_entrance  Remove the people of the exit space.
 %
+% Author: Hephaest
+% July 18, 2019
 
 [L, W] = size(passage);
 ind = find(passage == 1);
@@ -14,5 +16,5 @@ k = find((v(ind) + row <= 0) | (row < ceil( L / 4) & (col == 1 | col == W)));
 
 nOut = length(k);       % Count the people who successfully exits.
 tout = time(ind(k));    % Count the time that people successfully exits.
-passage(ind(k)) = 0;   % Clear the color.
-v(ind(k)) = 0;             % Remove velocity.
+passage(ind(k)) = 0;    % Clear the color.
+v(ind(k)) = 0;          % Remove velocity.
