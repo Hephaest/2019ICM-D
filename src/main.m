@@ -7,21 +7,21 @@
 % July 18, 2019
 
 clear; clc
-sCount = 1000;     % The maximal iterations of simulation.
-N = 10;                 % The maximum of obstacles.
-E = 6;                   % The entrance width.
-vMax = -3;           % max upward running speed.
-L = 60;                 % The entrance length.
-flag = 0;               % Check whether obstacle exists or not.
+sCount = 1000;      % The maximal iterations of simulation.
+N = 10;             % The maximum of obstacles.
+E = 6;              % The entrance width.
+vMax = -3;          % Max upward running speed.
+L = 60;             % The entrance length.
+flag = 0;           % Check whether obstacle exists or not.
 pop = 1000;         % The total number of visitors in the current floor. 
 
 [passage, v, time] = createPassage(E,L);
 
 g = showPassage(passage, NaN, 0.01);  % The graphic.
 
-tCost = [];             % Total time of evacuation.
-count = 0;            % The current number of people.
-eCount = 1;           % The current number of people who is in the passage.
+tCost = [];          % Total time of evacuation.
+count = 0;           % The current number of people.
+eCount = 1;          % The current number of people who is in the passage.
 oCount = 0;          % The total number of people who have successfully evacuated.
 mu = pop / 2;        % The mu value of normal distribution.
 
