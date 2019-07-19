@@ -1,11 +1,13 @@
 function h = showPassage(passage, h, n)
 %
-% showPassage  To show the passage matrix as a image.
-% 
+% showPassage  To show the passage matrix as an image.
+%
+% Author: Hephaest
+% July 18, 2019
 
-% mark:        car;   empty;       wall;   obstacle;
+% mark:      visitor;       empty;        wall;     obstacle;
 mark  = [          1;           0;          -1;          -2];
-color = [0.0 0.0 1.0; 1.0 1.0 1.0; 0.5 0.5 0.5; 1.0 0.0 0.0; 0.0 1.0 0.0];
+color = [0.0 0.0 1.0; 1.0 1.0 1.0; 0.5 0.5 0.5; 1.0 0.0 0.0];
 
 rgb = mark2color(passage, mark, color);
 
@@ -15,7 +17,7 @@ else
     figure('position',[20, 50, 200, 700]);
     h = imagesc(rgb); 
     hold on; axis image; set(gca, 'xtick', [], 'ytick', []);
-    % draw the grid.
+    % Draw the grid.
     [L, W] = size(passage);
     plot([0:W;0:W] + 0.5, [0;L] + 0.5, 'k', [0;W] + 0.5, [0:L;0:L] + 0.5,'k')
 end
