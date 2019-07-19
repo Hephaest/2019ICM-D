@@ -7,6 +7,8 @@ function [passage, v, time] = switchPos(passage, v, E, L, time)
 % will stop running for seconds to find another way if both directions 
 % are unavailable. 
 %
+% Author: Hephaest
+% July 18, 2019
 
 booth_row = ceil(L/4 );
 [row, col] = find(passage==1);
@@ -71,10 +73,9 @@ for k = 1 : length(row)
     end
     
 end
-
 %---------------------------------------------------------------------
 function [passage, v, time] = move(passage, v, time, i, j, di, dj)
 % move visitor from (i,j) to (i+di,j+dj).
 passage(i+di,j+dj) =         1;          passage(i,j) = 0;
-v(i+di,j+dj)     =    v(i,j);          v(i,j)     = 0;
-time(i+di,j+dj)  = time(i,j);          time(i,j)  = 0;
+v(i+di,j+dj)       =    v(i,j);          v(i,j)       = 0;
+time(i+di,j+dj)    = time(i,j);          time(i,j)    = 0;
