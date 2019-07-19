@@ -1,19 +1,21 @@
 function [passage, v, time] = movement(passage, v, time, vMax, L)
 % 
-% move_forward   people move forward governed by NS algorithm:
+% move_forward   People move forward governed by NS algorithm:
 %
 % 1. Acceleration. If the people have a chance to speed up without hitting 
 % the limit speed vMax, vn = vn + 1. However, this condition is not
-% suitable for the people whose velocity is 0 or near the entries.
+% suitable for the people whose velocity is 0.
 %
 % 2. Collision prevention. If the distance between the people and the people 
 % ahead of him, dn is less than or equal to vn , then vn = dn - 1.
 %
 % 3. Conditional slowing. peoples run slow to avoid obstacles. 
-% With some probability pbrake , vn = vn - 1. 
+% With some probability pbrake, vn = vn - 1. 
 %
 % 4. People movement. The peoples are usually moved by their velocities.
 %
+% Author: Hephaest
+% July 18, 2019
 
 % Probability of acceleration.
 probac = 0.6;
