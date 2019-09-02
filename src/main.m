@@ -10,7 +10,7 @@ clear; clc
 sCount = 1000;      % The maximal iterations of simulation.
 N = 10;             % The maximum of obstacles.
 E = 6;              % The entrance width.
-vMax = -3;          % Max upward running speed.
+vmax = -3;          % Max upward running speed.
 L = 60;             % The entrance length.
 flag = 0;           % Check whether obstacle exists or not.
 pop = 1000;         % The total number of visitors in the current floor. 
@@ -19,7 +19,7 @@ pop = 1000;         % The total number of visitors in the current floor.
 
 g = showPassage(passage, NaN, 0.01);  % The graphic.
 
-tCost = [];          % Total time of evacuation.
+tcost = [];          % Total time of evacuation. 
 count = 0;           % The current number of people.
 eCount = 1;          % The current number of people who is in the passage.
 oCount = 0;          % The total number of people who have successfully evacuated.
@@ -30,7 +30,7 @@ while eCount > 0
     [passage, flag] = newObstacle(N, passage, flag, sCount, count, L);
     
     % Produce new people.
-    [passage, v] = newPeople(count, mu, pop, passage, v, vMax);
+    [passage, v] = newPeople(count, mu, pop, passage, v, vmax);
     
     % Update people behavior.
     [passage, v, time] = switchPos(passage, v, E, L, time); 
@@ -51,7 +51,7 @@ while eCount > 0
     end
     
     % Visitor calculation.
-    tcost = [tcost; tout];
+    tcost = [tcost; tout]; %
     count = length(find(passage(:,:) == 1));
     count = count + oCount;
     eCount = length(find(passage(:,:) == 1));
@@ -60,4 +60,4 @@ end
 
 g = showPassage(passage, g, 0.01);
 % Display the mean cost time.
-xlabel(['mean cost time = ', num2str(mean(tcost))])
+xlabel(['mean cost time = ', num2str(mean(tcost))]);
