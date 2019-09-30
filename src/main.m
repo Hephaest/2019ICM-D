@@ -37,7 +37,7 @@ while eCount > 0
     [passage, v, time] = movement(passage, v, time, vMax, L);
 
     % Boundary condition.
-    [passage, v, time, nOut, tout] = clearBoundary(passage, v, time);
+    [passage, v, time, nOut, tOut] = clearBoundary(passage, v, time);
     oCount = oCount + nOut;
     
     % Passage plot.
@@ -51,7 +51,7 @@ while eCount > 0
     end
     
     % Visitor calculation.
-    tCost = [tCost; tout]; %
+    tCost = [tCost; tOut]; %
     count = length(find(passage(:,:) == 1));
     count = count + oCount;
     eCount = length(find(passage(:,:) == 1));
