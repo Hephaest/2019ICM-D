@@ -19,7 +19,7 @@ pop = 1000;         % The total number of visitors in the current floor.
 
 g = showPassage(passage, NaN, 0.01);  % The graphic.
 
-tCost = [];          % Total time of evacuation.
+tCost = [];          % Total time of evacuation. 
 count = 0;           % The current number of people.
 eCount = 1;          % The current number of people who is in the passage.
 oCount = 0;          % The total number of people who have successfully evacuated.
@@ -27,17 +27,17 @@ mu = pop / 2;        % The mu value of normal distribution.
 
 while eCount > 0
     % Produce new obstacle.
-    [passage, flag] = newObstacle(N, passage, flag, sCount, count, L);
+    %[passage, flag] = newObstacle(N, passage, flag, sCount, count, L);
     
     % Produce new people.
     [passage, v] = newPeople(count, mu, pop, passage, v, vMax);
     
     % Update people behavior.
     [passage, v, time] = switchPos(passage, v, E, L, time); 
-    [passage, v, time] = movement(passage, v, time, vmax, L);
+    [passage, v, time] = movement(passage, v, time, vMax, L);
 
     % Boundary condition.
-    [passage, v, time, nOut, tout] = clearBoundary(passage, v, time);
+    [passage, v, time, nOut, tOut] = clearBoundary(passage, v, time);
     oCount = oCount + nOut;
     
     % Passage plot.
@@ -47,11 +47,11 @@ while eCount > 0
     [row, col] = find(v == 0);
     for k = 1: length(row)
         i = row(k); j = col(k);
-        v(i, j) = ceil(rand * vmax);
+        v(i, j) = ceil(rand * vMax);
     end
     
     % Visitor calculation.
-    tcost = [tcost; tout];
+    tCost = [tCost; tOut]; %
     count = length(find(passage(:,:) == 1));
     count = count + oCount;
     eCount = length(find(passage(:,:) == 1));
@@ -60,4 +60,4 @@ end
 
 g = showPassage(passage, g, 0.01);
 % Display the mean cost time.
-xlabel(['mean cost time = ', num2str(mean(tcost))])
+xlabel(['mean cost time = ', num2str(mean(tCost))]);
