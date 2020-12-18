@@ -18,7 +18,6 @@ Table of Contents
 # A Self-adaption Cellular Automaton Model
 [![LICENSE](https://img.shields.io/cocoapods/l/AFNetworking.svg)](https://github.com/Hephaest/2019ICM-D/blob/master/LICENSE)
 [![Matlab](https://img.shields.io/badge/MATLAB-R2018b-orange.svg)](https://www.oracle.com/technetwork/java/javase/8u202-relnotes-5209339.html)
-[![Dependencies](https://img.shields.io/badge/Dependencies-up%20to%20date-green.svg)](https://github.com/Hephaest/2019ICM-D/tree/master/src)
 
 English | [中文](README_CN.md)
 
